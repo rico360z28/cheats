@@ -1,0 +1,1 @@
+sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") rsp list
