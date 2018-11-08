@@ -5,3 +5,8 @@ random text/code snips
 cp /run/secrets/server.key /opt/rfid-gw
 chmod 400 server.key
 #
+
+
+rsp exec -i server.key -P 62939 "date" ALL
+rsp send -i server.key -P 62939 -f ~/file -d /tmp/ ALL
+ssh -i server.key -p62939 root@192.168.2.78
