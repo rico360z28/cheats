@@ -1,0 +1,7 @@
+random text/code snips
+
+#!/bin/sh
+#
+cp /run/secrets/server.key /opt/rfid-gw
+chmod 400 server.key
+#
