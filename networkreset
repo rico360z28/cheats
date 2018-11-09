@@ -1,0 +1,27 @@
+#!/bin/bash
+echo "Reader Network DHCP fix Tool"
+echo ""
+echo "Your IP address is:  ($(hostname -I))"
+stringIP=($(hostname -I))
+shortIP="${stringIP%.*}."
+read -p "Enter starting IP address octet '$shortIP' (1-254): " StartIP
+read -p 'Enter ending IP address octet (1-254): ' EndIP
+address_array=()
+for ((IndexName=$StartIP; IndexName<=$EndIP; IndexName++))
+do
+address_array+=("$shortIP$IndexName")
+done
+for var in "${address_array[@]}"
+do
+echo "$var"
+sshpass -proot ssh -T -o StrictHostKeyChecking=no root@$var << !
+hostname
+echo "Deleteing file in /var/lib/dhcp/"
+rm -f /var/lib/dhcp/*.*
+echo "Rebooting $hostname"
+reboot
+!
+#
+echo ""
+#
+done
