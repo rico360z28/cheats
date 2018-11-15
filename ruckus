@@ -4,8 +4,23 @@ Leveling POE power across ports
 
 Recomended to update firmware
 
-Install TFTPD for switch to grab firmware
-
-Download Firmware
+  Install TFTPD for switch to grab firmware
+    # apt install tftpd-hpa -y
+    # cp /etc/default/tftpd-hpa /etc/default/tftpd-hpa.ORIGINAL
+    # nano /etc/default/tftpd-hpa
+      Change: TFTP_OPTIONS="--secure"
+      To: TFTP_OPTIONS="--secure --create"
+    # chown -R tftp /var/lib/tftpboot
+    # service tftpd-hpa restart
+    
+  Download and unzip Firmware
+    https://support.ruckuswireless.com/software/1889-ruckus-icx-fastiron-08-0-80ca-software-release-zip
+    From Downloads/08080ca/ICX7150
+    
+    # cp Images/SPS08080ca /var/lib/tftpboot
+    # cp Boot/mnz10113.bin /var/lib/tftpboot
+      Change permissions on files so TFTPD user can see them
+    # chmod 766 /var/lib/tftpboot/*.bin
+    
 
 
