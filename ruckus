@@ -29,9 +29,9 @@ Recomended to update firmware
     Now you are free to upgrade the switch
     
     From terminal will have to telnet to switch
-    Use IP Address taht matches your switch
+    Use IP Address that matches your switch
     # telnet 192.168.0.3 23
-      Login with usename and Password
+      Login with username and Password
       enable Admin mode
     telnet@Ruckus>enable
       telnet@Ruckus#
@@ -55,9 +55,9 @@ You can now worry about the POE settings
       
   Set POE on network interfaces:    
     From terminal will have to telnet to switch
-    Use IP Address taht matches your switch
+    Use IP Address that matches your switch
     # telnet 192.168.0.3 23
-      Login with usename and Password
+      Login with username and Password
       enable Admin mode
     telnet@Ruckus>enable
       telnet@Ruckus#
