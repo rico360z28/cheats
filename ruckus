@@ -18,12 +18,42 @@ Recomended to update firmware
     We use the SPS firware since its Layer2 and it matches Layer2 that the switch was already using
     From Downloads/08080ca/ICX7150
     
-    # cp Images/SPS08080ca /var/lib/tftpboot
     # cp Boot/mnz10113.bin /var/lib/tftpboot
+    # cp Images/SPS08080ca /var/lib/tftpboot
       Change permissions on files so TFTPD user can see them
     # chmod 766 /var/lib/tftpboot/*.bin
     
   Backup running config of switch for firmware upgrade
+    From web interface goto TFTP Configuration and put your tftp server taht you just setup IP
+    Create a file name and click save from Flash to Server
+    Now you are free to upgrade the switch
+    
+    From terminal will have to telnet to switch
+    Use IP Address taht matches your switch
+    # telnet 192.168.0.3 23
+      Login with usename and Password
+      enable Admin mode
+    telnet@Ruckus>enable
+      telnet@Ruckus#
+    #copy tftp flash 192.168.0.2 mnz10113.bin bootrom
+      Will take a few seconds to complete
+    #copy tftp flash 192.168.0.2 SPS08080ca primary
+      Will take a few seconds to complete
+    #boot system flash primary yes
+      System will reboot and fans spin a few times then come back online
+      Approx 2 minutes
+      
+You can now worry about the POE settings
+      
+  Reset POE on switch
+    From web console:
+      Management/port/Inline-Power
+      Select: Disable , Class 4 , Range 1-24
+      Apply
+      After a few seconds all sensors will turn off
+      Can be verified in the StackPOEStatistics
+      
+  Set POE on network interfaces:    
     From terminal will have to telnet to switch
     Use IP Address taht matches your switch
     # telnet 192.168.0.3 23
@@ -42,27 +72,8 @@ Recomended to update firmware
     #inline power power-by-class 4
     #inline power power-limit 16800
     
-      Repeat for 1/1/1 - 1/1/18
-      Change power-limit for 1/1/19 - 1/1/22 to 6000 to allow for bringing up 1/1/22
-      Can be verified in the StackPOEStatistics
-    
-    
-    
-
-
-    
-    
-  
-  
-  
-  Reset POE on switch
-    From web console:
-      Management/port/Inline-Power
-      Select: Disable , Class 4 , Range 1-24
-      Apply
-      After a few seconds all sensors will turn off
-      Can be verified in the StackPOEStatistics
-      
-      
+      Repeat for 1/1/1 - 1/1/22
+      Can be verified in the StackPOEStatistics or command line
+      #show inline power 1      
       
 
