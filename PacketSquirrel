@@ -1,0 +1,19 @@
+Credit to Hak5 on an awesome device: https://shop.hak5.org/collections/sale/products/packet-squirrel
+The OpenVPN scripts included in the tutorial worked great.: https://docs.hak5.org/hc/en-us/articles/360010554013-OpenVPN-Payload
+Only problem I had with SSH on my VPS to the VPNd clients was with MTU
+On the server conf for OpenVPN make the following changes:
+for tun-mtu and for mssfix
+***********
+proto udp
+dev tun
+tun-mtu 1500
+mssfix 1300
+***********
+
+After the change on my server side i was able to use this fun little device to my content!
+
+https://docs.hak5.org/hc/en-us/articles/360010554693-INCLUDED-TOOLS
+
+https://docs.hak5.org/hc/en-us/categories/360000982574-Packet-Squirrel
+
+
