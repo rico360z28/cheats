@@ -1,0 +1,17 @@
+First off. This is the most frustrating piece of KVM equiptment I have ever had to set up. There, I said it.
+The Raritan Dominion LX
+https://www.raritan.com/support/product/dominion-lx
+
+If you are trying to acces its machines over a web browser on linux, forget about it. That is why I am writing this.
+The interface was developed abck when all your brwsers could jun java plugins, no more my friend.
+
+After lots of time, trial and error I'll outline the hot setup for an ubuntu 1804 usecase.
+Milage may vary, other distros will be similar.
+
+Java: If you know how to install this and get it working for you reliably, great for you.
+I used this guide: https://linuxize.com/post/install-java-on-ubuntu-18-04/
+Specifically: https://linuxize.com/post/install-java-on-ubuntu-18-04/#installing-oracle-java-with-apt
+
+
+
+https://d3b2us605ptvk2.cloudfront.net/download/lx/v2.7.0/mpc-installer.MPC_7.0.3.5.62.jar.zip
