@@ -10,3 +10,44 @@ chmod 400 server.key
 rsp exec -i server.key -P 62939 "date" ALL
 rsp send -i server.key -P 62939 -f ~/file -d /tmp/ ALL
 ssh -i server.key -p62939 root@192.168.2.78
+
+https://dopensource.com/2016/12/30/scripting-one-time-ssh-access-to-allow-for-google-authenticator-setup/
+adduser
+sudo useradd -m -p N4G/33jUi9OS2 -G sudo, google-auth -s /bin/bash test-admin
+
+#!/bin/bash
+
+if [ -e $HOME/.google_authenticator]  
+then  
+    echo "No steps required"
+else  
+    echo "Your steps go here"
+    google-authenticator
+fi  
+
+
+groupadd google-auth
+
+#!/bin/bash
+
+if [ ! -f ~/.google_authenticator ]; then
+    google-authenticator
+    if [ -f ~/.google_authenticator ]; then
+        sed -i "/^${USER}$/d" /google-auth/authusers
+    fi
+fi
+auth    required        pam_sss.so try_first_pass
+auth    sufficient  pam_listfile.so item=user sense=allow file=/google-auth/authusers
+auth    sufficient      pam_google_authenticator.so
+auth       required     pam_sepermit.so
+#auth       include      password-auth
+
+
+chgrp google-auth /google-auth/authusers
+chmod ug=rwx,o= /google-auth/authusers
+
+
+sudo chmod -R 777 /google-auth/
+
+
+
