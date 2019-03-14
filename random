@@ -49,5 +49,18 @@ chmod ug=rwx,o= /google-auth/authusers
 
 sudo chmod -R 777 /google-auth/
 
+https://dopensource.com/2016/12/30/scripting-one-time-ssh-access-to-allow-for-google-authenticator-setup/
+google-authenticator -t -D -w 21 -S 60 -f -u -e 10
+https://www.mankier.com/1/google-authenticator
+
+ssh-keygen -t rsa -b 4096 -C "your_email@domain.com"
+
+nano /google-auth/authusers 
+
+#!/bin/bash
+echo "Reset user"
+echo test-admin >> /google-auth/authusers
+rm /home/test-admin/.google_authenticator 
+echo "Done"
 
 
