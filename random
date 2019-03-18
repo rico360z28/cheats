@@ -116,12 +116,18 @@ At the end of the .profile file add:
 bash /usr/local/bin/google-auth-check.sh
 Save your file
 
+Now we need to add the .ssh/authorized_users file to this direcory and set its permissions
+# mkdir -p.ssh/authorized_keys
+# chmod 700 .ssh
+# chmod 600 .ssh/authorized_keys
+
+On to the next step
 
 Create the .sh file /usr/local/bin/google-auth-check.sh
 
 # nano /usr/local/bin/google-auth-check.sh
 
-copy the contents below into that file
+Copy the contents below into that file
 
 #!/bin/bash
 
@@ -172,7 +178,7 @@ ricky-bobby
 
 On to the next step
 Actually create the user! (if you dont want the user to have sudo dont add it here)
-# useradd -m -p S3Cr#tp@ss -G sudo, google-auth -s /bin/bash test-admin
+# useradd -m -p S3Cr#tp@ss -g users -G sudo, google-auth -s /bin/bash test-admin
 
 Please make sure you have local console access incase you lock yourself out with the next steps with PAM and SSH Config
 From what I can tell much of PAM and ssh config work by line. So it matters where commands are.
