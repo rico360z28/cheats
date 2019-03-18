@@ -16,7 +16,8 @@ adduser
 edit /etc/skel.profile
 append sh /usr/local/bin/google-auth-check.sh
 
-sudo useradd -m -p N4G/33jUi9OS2 -G sudo, google-auth -s /bin/bash test-admin
+sudo useradd -m -p N4G/33jUi9OS2 -G sudo,google-auth -s /bin/bash test-admin
+cut -d: -f1 /etc/group | sort
 
 #!/bin/bash
 
@@ -53,7 +54,7 @@ chmod ug=rwx,o= /google-auth/authusers
 sudo chmod -R 777 /google-auth/
 
 https://dopensource.com/2016/12/30/scripting-one-time-ssh-access-to-allow-for-google-authenticator-setup/
-google-authenticator -t -D -w 21 -S 60 -f -u -e 10
+google-authenticator -t -D -w 21 -S 60 -f -Q utf8 -u -e 10
 https://www.mankier.com/1/google-authenticator
 
 ssh-keygen -t rsa -b 4096 -C "your_email@domain.com"
@@ -112,8 +113,9 @@ Now lets edit the default .profile file so we dont have to do it for each indivi
 # nano /etc/skel/.profile
 Look, dont give me crap about nano. It works. Ill learn vi and vim later.
 At the end of the .profile file add:
-sh /usr/local/bin/google-auth-check.sh
-Save your file and on to the next step
+bash /usr/local/bin/google-auth-check.sh
+Save your file
+
 
 Create the .sh file /usr/local/bin/google-auth-check.sh
 
@@ -126,12 +128,12 @@ copy the contents below into that file
 if [ ! -f ~/.google_authenticator ]; then
     echo ""
     echo ""
-    google-authenticator -t -D -w 17 -S 30 -f -u -e 10
+    google-authenticator -t -D -w 17 -S 30 -f -Q utf8 -u -e 10
     echo ""
     echo "You were given a temporary password for this account."
     echo "Set up google authenticator and sshkey access"
     echo "Password-only logins are disabled when you logout of this session"
-    echo "\e[1;31mDo not close this window unless you have completed these tasks!\e[0m"
+    echo -e "\e[1;31mDo not close this window unless you have completed these tasks!\e[0m"
     echo "-admin"
     echo""
     if [ -f ~/.google_authenticator ]; then
@@ -219,6 +221,7 @@ Then push the key to the server!
 # ssh-copy-id test-admin@104.115.107.237
 Will be asked for password and authenticator code
 
+Note: For windows use your favorite way to get your public key into .ssh/authorized_keys
 
 I hope this helps!!
 References:
