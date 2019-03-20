@@ -7,6 +7,9 @@ chmod 400 server.key
 #
 
 
+nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable
+
+
 rsp exec -i server.key -P 62939 "date" ALL
 rsp send -i server.key -P 62939 -f ~/file -d /tmp/ ALL
 ssh -i server.key -p62939 root@192.168.2.78
