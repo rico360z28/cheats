@@ -8,6 +8,7 @@ chmod 400 server.key
 
 
 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable
+ tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
 
 
 rsp exec -i server.key -P 62939 "date" ALL
