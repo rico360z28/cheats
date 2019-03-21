@@ -6,9 +6,11 @@ cp /run/secrets/server.key /opt/rfid-gw
 chmod 400 server.key
 #
 
-
+Linux Kernel No Spect No Melt config
 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable
- tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
+
+tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
+ 
  address 192.168.2.11
  netmask 255.255.255.0
  gateway 192.168.2.1
