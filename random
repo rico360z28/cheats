@@ -16,6 +16,20 @@ tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
  gateway 192.168.2.1
  dns-nameservers 192.168.2.1 8.8.8.8
 
+curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
+system-docker run -it --rm --privileged --net host -v /opt:/opt alpine ash
+ curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o /opt/portainer-agent-stac
+k.yml
+ docker stack deploy --compose-file=/opt/portainer-agent-stack.yml portainer
+docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /path/on/host/data:/data portainer/portainer
+docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock portainer
+ wget -O /opt//portainer-1.20. https://github.com/portainer/portainer/releases/download/1.20.1
+/portainer-1.20.1-linux-amd64.tar.gz
+tar xvpfz portainer-1.20.1-linux-amd64.tar.gz
+wget -O /opt/portainer-1.20.1-linux-amd64.tar.gz https://github.com/portainer/portainer/relea
+ses/download/1.20.1/portainer-1.20.1-linux-amd64.tar.gz
+
+i915.fastboot=1
 
 rsp exec -i server.key -P 62939 "date" ALL
 rsp send -i server.key -P 62939 -f ~/file -d /tmp/ ALL
@@ -65,7 +79,7 @@ chmod ug=rwx,o= /google-auth/authusers
 sudo chmod -R 777 /google-auth/
 
 https://dopensource.com/2016/12/30/scripting-one-time-ssh-access-to-allow-for-google-authenticator-setup/
-google-authenticator -t -D -w 21 -S 60 -f -Q utf8 -u -e 10
+google-authenticator -t -D -w 17 -S 60 -f -Q utf8 -u -e 10
 https://www.mankier.com/1/google-authenticator
 
 ssh-keygen -t rsa -b 4096 -C "your_email@domain.com"
