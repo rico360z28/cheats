@@ -23,12 +23,8 @@ k.yml
  docker stack deploy --compose-file=/opt/portainer-agent-stack.yml portainer
 docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /path/on/host/data:/data portainer/portainer
 docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock portainer
- wget -O /opt//portainer-1.20. https://github.com/portainer/portainer/releases/download/1.20.1
-/portainer-1.20.1-linux-amd64.tar.gz
-tar xvpfz portainer-1.20.1-linux-amd64.tar.gz
-wget -O /opt/portainer-1.20.1-linux-amd64.tar.gz https://github.com/portainer/portainer/relea
-ses/download/1.20.1/portainer-1.20.1-linux-amd64.tar.gz
-
+ wget -O /opt/portainer-1.20.1-linux-amd64.tar.gz https://github.com/portainer/portainer/releases/download/1.20.1/portainer-1.20.1-linux-amd64.tar.gz
+ 
 i915.fastboot=1
 
 rsp exec -i server.key -P 62939 "date" ALL
