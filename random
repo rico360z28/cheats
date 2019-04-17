@@ -6,8 +6,17 @@ cp /run/secrets/server.key /opt/rfid-gw
 chmod 400 server.key
 #
 
-Linux Kernel No Spect No Melt config
+##Linux Kernel No Spect No Melt config
 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable
+GRUB_CMDLINE_LINUX_DEFAULT="splash ipv6.disable=1 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable"
+GRUB_CMDLINE_LINUX="fbcon=scrollback:2048k"
+
+## Lightweight desktop
+apt-install --no-install-recommends lxde
+
+#Add HWE to existing system
+sudo apt-get install --install-recommends linux-generic-hwe-16.04
+
 
 tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
  
