@@ -5,6 +5,9 @@ random text/code snips
 cp /run/secrets/server.key /opt/rfid-gw
 chmod 400 server.key
 #
+##
+wget https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh
+##GoLang Install
 
 ##Linux Kernel No Spect No Melt config
 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable
