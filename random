@@ -20,6 +20,7 @@ apt-install --no-install-recommends lxde
 #Add HWE to existing system
 sudo apt-get install --install-recommends linux-generic-hwe-16.04
 
+docker rmi $(docker images -a -q) -f
 
 tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
  
