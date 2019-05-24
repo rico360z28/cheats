@@ -21,6 +21,7 @@ apt-install --no-install-recommends lxde
 sudo apt-get install --install-recommends linux-generic-hwe-16.04
 
 docker rmi $(docker images -a -q) -f
+sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") sh 
 
 
 tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
