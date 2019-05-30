@@ -22,6 +22,33 @@ sudo apt-get install --install-recommends linux-generic-hwe-16.04
 
 docker rmi $(docker images -a -q) -f
 sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") sh 
+sudo usermod -aG docker $USER
+
+VNC and XFCE
+sudo apt install xfce4 xfce4-goodies
+sudo apt install tightvncserver
+vncserver
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04
+autocutsel -fork
+
+/etc/systemd/system/vncserver@.service 
+[Unit]
+Description=Start TightVNC server at startup
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=sammy
+Group=sammy
+WorkingDirectory=/home/sammy
+
+PIDFile=/home/sammy/.vnc/%H:%i.pid
+ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
+ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 :%i
+ExecStop=/usr/bin/vncserver -kill :%i
+
+[Install]
+WantedBy=multi-user.target
 
 
 tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
