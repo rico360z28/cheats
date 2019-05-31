@@ -50,7 +50,8 @@ ExecStop=/usr/bin/vncserver -kill :%i
 [Install]
 WantedBy=multi-user.target
 
-
+# start the ssh-agent in the background
+$ eval $(ssh-agent -s)
 tcpdump -s 0 -i ens3 -w /home/rico-admin/pxetest1.pcap
  
  address 192.168.2.11
