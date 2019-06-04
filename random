@@ -23,6 +23,7 @@ sudo apt-get install --install-recommends linux-generic-hwe-16.04
 docker rmi $(docker images -a -q) -f
 sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") sh 
 sudo usermod -aG docker $USER
+chroot /host command
 
 VNC and XFCE
 sudo apt install xfce4 xfce4-goodies
