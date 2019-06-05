@@ -9,6 +9,29 @@ chmod 400 server.key
 wget https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh
 ##GoLang Install
 
+ClearLinux Wifi
+mkdir -vp /etc/wpa_supplicant/;
+mkdir -vp /etc/systemd/network/;
+wlan=$(networkctl list | grep wlan | awk '{print $2}');
+echo "network={
+    ssid=\"SSID\"
+    psk=\"AwesomePassphrase\"
+    scan_ssid=1
+    priority=1
+}" > /etc/wpa_supplicant/wpa_supplicant-"$wlan".conf;
+
+echo "[Match]
+Name=wl*
+
+[Network]
+DHCP=yes" > /etc/systemd/network/81-wireless-dhcp.network;
+
+systemctl start "wpa_supplicant@$wlan.service";
+
+systemctl restart systemd-networkd;
+
+
+
 ##Linux Kernel No Spect No Melt config
 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable
 GRUB_CMDLINE_LINUX_DEFAULT="splash ipv6.disable=1 nopti noibrs noibpb nospectre_v2 nospec_store_bypass_disable"
