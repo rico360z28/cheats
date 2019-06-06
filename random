@@ -30,6 +30,8 @@ systemctl start "wpa_supplicant@$wlan.service";
 
 systemctl restart systemd-networkd;
 
+/opt/mea/bin/reset
+systemctl start mea
 
 
 ##Linux Kernel No Spect No Melt config
