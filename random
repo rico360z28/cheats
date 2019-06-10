@@ -55,7 +55,11 @@ sudo apt install xfce4 xfce4-goodies
 sudo apt install tightvncserver
 vncserver
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04
+
+#!/bin/bash
+xrdb $HOME/.Xresources
 autocutsel -fork
+startxfce4 &
 
 /etc/systemd/system/vncserver@.service 
 [Unit]
