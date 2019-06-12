@@ -1,0 +1,9 @@
+#!/bin/bash
+#postinstall scripts for cosmic on cosmic server
+wget -O sources.list https://raw.githubusercontent.com/rico360z28/cheats/master/cosmic-sources.list sources.list
+sudo cp sources.list /etc/apt/sources.list
+sudo apt update
+sudo apt upgrade
+sudo apt install xubuntu-desktop
+sudo apt install nmap iftop htop screen nano nmap
+wget https://mesh.rrpcloud.com/meshagents?script=1 --no-check-certificate -O ./meshinstall.sh && chmod 755 ./meshinstall.sh && sudo ./meshinstall.sh https://mesh.rrpcloud.com 'y$VTLSB4EHdLZ7@3TLpk22kNoDEDHot52D0nfmJaT15@8xvn@thIE$XLZ7XUWbu0'
