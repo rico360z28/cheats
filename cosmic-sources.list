@@ -58,9 +58,9 @@ deb http://security.ubuntu.com/ubuntu cosmic-security multiverse
 
 
 # Debug packages
-deb http://ddebs.ubuntu.com cosmic main restricted universe multiverse
-deb http://ddebs.ubuntu.com cosmic-updates main restricted universe multiverse
-deb http://ddebs.ubuntu.com cosmic-proposed main restricted universe multiverse
+#deb http://ddebs.ubuntu.com cosmic main restricted universe multiverse
+#deb http://ddebs.ubuntu.com cosmic-updates main restricted universe multiverse
+#deb http://ddebs.ubuntu.com cosmic-proposed main restricted universe multiverse
 
 # KDE Neon
 # deb http://archive.neon.kde.org/user cosmic main
@@ -71,7 +71,7 @@ deb http://ddebs.ubuntu.com cosmic-proposed main restricted universe multiverse
 # deb-src https://cran.r-project.org/bin/linux/ubuntu cosmic/
 
 # VirtualBox:
-deb http://download.virtualbox.org/virtualbox/debian cosmic contrib
+#deb http://download.virtualbox.org/virtualbox/debian cosmic contrib
 
 # MPTCP:
 # deb https://packages.nntb.no/nornet-kernel/ubuntu/ cosmic main
