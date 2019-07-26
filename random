@@ -49,6 +49,8 @@ docker rmi $(docker images -a -q) -f
 sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") sh 
 sudo usermod -aG docker $USER
 chroot /host command
+docker run --rm -it nmap -p554 192.168.99.0/24 -oG - | awk '/open/{print $2 " " $3}' >cameras
+
 
 VNC and XFCE
 sudo apt install xfce4 xfce4-goodies
