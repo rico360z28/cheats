@@ -26,7 +26,7 @@
 - Playlist on using WireShark: [YouTube Playlist](https://www.youtube.com/watch?v=6X5TwvGXHP0&list=PLW5y1tjAOzI30OkWG_rhUstdJTk1FgU2W)
 - Notes: May need sudo for captures depending on package installed.
 
-## Netstat
+## Netstat: Shows what services are running on the host
 
 - Windows
   - Non-administrative CMD: netstat -oan
