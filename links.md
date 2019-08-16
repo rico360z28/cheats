@@ -24,5 +24,18 @@
 
 - Download: <https://www.wireshark.org/>
 - Playlist on using WireShark: [YouTube Playlist](https://www.youtube.com/watch?v=6X5TwvGXHP0&list=PLW5y1tjAOzI30OkWG_rhUstdJTk1FgU2W)
-- Notes: May need sudo for catures depending on package installed.
+- Notes: May need sudo for captures depending on package installed.
+
+## Netstat
+
+- Windows
+  - Non-administrative CMD: netstat -oan
+  - This gives you all connections and listening ports, the PID, address and port in numerical form. Some PID's missing
+  - Administrative 'CMD + (Ctrl+Shift+Enter)': netstat -boan
+  - This gives you all connections and listening ports, the PID, address and port in numerical form. All PID's
+- Linux
+  - Non-administrative Command: netstat -punat
+  - This gives you all connections and listening ports'(TCP/UDP)', the PID, address and port in numerical form. Some PID's missing
+  - Administrative Command'(sudo)': sudo netstat -punat
+  - This gives you all connections and listening ports '(TCP/UDP)', the PID, address and port in numerical form. All PID's
 
