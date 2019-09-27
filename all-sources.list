@@ -18,6 +18,14 @@ deb http://archive.canonical.com/ubuntu xenial partner
 deb http://archive.canonical.com/ubuntu bionic partner
 deb http://archive.canonical.com/ubuntu cosmic partner
 
+deb http://security.ubuntu.com/ubuntu xenial-security main restricted
+deb http://security.ubuntu.com/ubuntu xenial-security universe
+deb http://security.ubuntu.com/ubuntu xenial-security multiverse
+
 deb http://security.ubuntu.com/ubuntu bionic-security main restricted
 deb http://security.ubuntu.com/ubuntu bionic-security universe
 deb http://security.ubuntu.com/ubuntu bionic-security multiverse
+
+deb http://security.ubuntu.com/ubuntu cosmic-security main restricted
+deb http://security.ubuntu.com/ubuntu cosmic-security universe
+deb http://security.ubuntu.com/ubuntu cosmic-security multiverse
