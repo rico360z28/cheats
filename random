@@ -1,5 +1,11 @@
 random text/code snips
 
+Windows Stuff
+https://github.com/Sycnex/Windows10Debloater
+Set-ExecutionPolicy Unrestricted -Force
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
+
+
 #!/bin/sh
 #
 cp /run/secrets/server.key /opt/rfid-gw
