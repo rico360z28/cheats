@@ -101,6 +101,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 
 docker rmi $(docker images -a -q) -f
+docker rm $(docker ps -a -q)
 sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") sh 
 sudo usermod -aG docker $USER
 chroot /host command
