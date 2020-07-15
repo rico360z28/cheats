@@ -99,6 +99,13 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 
+for name in $(ifconfig -a | sed 's/[ \t].*//;/^\(lo\|\)$/d' | grep veth)
+do
+    echo $name
+    # ip link delete $name # uncomment this
+done
+
+
 docker rmi $(docker images -a -q) -f
 docker rm $(docker ps -a -q)
 sudo docker exec -it $(sudo docker ps --format "{{.ID}}" --filter "name=gateway") sh 
