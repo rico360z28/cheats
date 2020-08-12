@@ -66,6 +66,24 @@ systemctl restart systemd-networkd;
 /opt/mea/bin/reset
 systemctl start mea
 
+
+# This file describes the network interfaces available on your system
+# For more information, see netplan(5).
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    internal:
+      match:
+        name: enp*
+      dhcp4: yes
+      dhcp4-overrides:
+        route-metric: 200
+    USB:
+      match:
+        name: enx*
+      dhcp4: yes
+
 netplan
 netplan.io version older than .95 can not use dhcp-overrides
 https://askubuntu.com/questions/1120998/error-in-network-definition-unknown-key-dhcp4-overrides
