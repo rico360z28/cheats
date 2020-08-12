@@ -66,6 +66,12 @@ systemctl restart systemd-networkd;
 /opt/mea/bin/reset
 systemctl start mea
 
+netplan
+netplan.io version older than .95 can not use dhcp-overrides
+https://askubuntu.com/questions/1120998/error-in-network-definition-unknown-key-dhcp4-overrides
+verify netplan version using
+sudo apt list netplan.io -a
+
 
 ##Linux Kernel No Spect No Melt config
 GRUB_CMDLINE_LINUX_DEFAULT="splash noibrs noibpb nopti nospectre_v2 nospectre_v1 l1tf=off nospec_store_bypass_disable no_stf_barrier mds=off mitigations=off"
