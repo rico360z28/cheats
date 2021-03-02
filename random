@@ -32,6 +32,11 @@ https://github.com/Sycnex/Windows10Debloater
 Set-ExecutionPolicy Unrestricted -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
 
+Bash-
+Remove blank lines from file
+sed -i '/^$/d' file.txt
+
+
 
 #!/bin/sh
 #
