@@ -36,6 +36,9 @@ Bash-
 Remove blank lines from file
 sed -i '/^$/d' file.txt
 
+Camera stuff:
+rtmp://admin:@192.168.8.150:80/bcs/channel0_main.bcs?channel=0&stream=0&user=admin
+
 
 
 #!/bin/sh
