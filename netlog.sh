@@ -3,7 +3,7 @@
 echo "##Begin##" >>/home/rico-admin/Documents/results
 echo "##When am I?##" >>/home/rico-admin/Documents/results
 date >>/home/rico-admin/Documents/results
-echo "##Wrere am I?##" >>/home/rico-admin/Documents/results
+echo "##Where am I?##" >>/home/rico-admin/Documents/results
 curl ifconfig.me >>/home/rico-admin/Documents/results
 echo "" >>/home/rico-admin/Documents/results
 echo "##IPs of machine##" >>/home/rico-admin/Documents/results
