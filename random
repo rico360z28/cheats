@@ -107,7 +107,13 @@ GRUB_CMDLINE_LINUX="fbcon=scrollback:2048k"
 apt-install --no-install-recommends lxde
 
 #Add HWE to existing system
-sudo apt-get install --install-recommends linux-generic-hwe-16.04
+sudo apt install --install-recommends linux-generic-hwe-16.04
+sudo apt install --install-recommends linux-generic-hwe-16.04 xserver-xorg-hwe-16.04
+sudo apt install --install-recommends linux-generic-hwe-18.04
+sudo apt install --install-recommends linux-generic-hwe-18.04 xserver-xorg-hwe-18.04
+sudo apt install --install-recommends linux-generic-hwe-20.04
+
+
 
 Docker Install
 sudo apt-get install \
