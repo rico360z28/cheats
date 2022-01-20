@@ -8,5 +8,3 @@ systemctl stop unifi
 kill $(ps aux | grep '[n]ginx' | awk '{print $2}')
 systemctl restart meshcentral.service
 systemctl restart unifi
-
-end
