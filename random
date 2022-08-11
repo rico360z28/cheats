@@ -17,6 +17,9 @@ sudo apt install ldnsutils
 Arch hostname PI pikvm
 hostnamectl set-hostname pikvm-403d06
 
+Virt:
+sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager -y
+
 
 download Google Drive file
 export fileid=1ZRTwCdcQ3tF8psmfk0DmERE18Yeg8yJp
